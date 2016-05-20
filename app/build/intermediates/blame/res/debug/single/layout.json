@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/menu_game_details.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_game_details.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details_header_title.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header_title.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/menu_main.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_main.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/games_list.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/games_list.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/floating_notification.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/floating_notification.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details_header.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header.xml"
+    }
+]

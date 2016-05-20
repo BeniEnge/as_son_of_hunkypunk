@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_delete.png",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_delete.png"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_edit.png",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_edit.png"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/icon.png",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/icon.png"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/text_window_background.xml",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/text_window_background.xml"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_preferences.png",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_preferences.png"
+    },
+    {
+        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_help.png",
+        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_help.png"
+    }
+]

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1d036e951ad610b72becd9a2470a5e3f3a9b8b5f">
+        <dex dex="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7f83cbe8ec1d6b522d769c376d43da82f134e721/classes.dex" />
+    </item>
+    <item
+        jar="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b744f9568f4117be0b468d14547c7d185354c33a">
+        <dex dex="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d8315ce07c741a36b6023e7b233210712d9b740f/classes.dex" />
+    </item>
+
+</items>

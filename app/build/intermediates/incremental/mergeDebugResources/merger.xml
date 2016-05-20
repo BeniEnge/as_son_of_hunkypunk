@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main$Generated" generated="true"><source path="/home/beni/son_of_hunkypunk-master2/app/src/main/res"/><source path="/home/beni/son_of_hunkypunk-master2/app/build/generated/res/rs/debug"/><source path="/home/beni/son_of_hunkypunk-master2/app/build/generated/res/resValues/debug"/></dataSet><dataSet config="debug$Generated" generated="true"><source path="/home/beni/son_of_hunkypunk-master2/app/src/debug/res"/></dataSet><dataSet config="main" generated-set="main$Generated"><source path="/home/beni/son_of_hunkypunk-master2/app/src/main/res"><file name="icon" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable-ldpi-v5/icon.png" qualifiers="ldpi-v5" type="drawable"/><file name="icon" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable-hdpi-v5/icon.png" qualifiers="hdpi-v5" type="drawable"/><file path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/values/attrs.xml" qualifiers=""><attr format="reference" name="textGridWindowStyle"/><attr format="reference" name="textBufferWindowEditStyle"/><attr format="reference" name="textBufferWindowStyle"/></file><file path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/values/array.xml" qualifiers=""><string-array name="fontNameArray">
+	<item>Droid Sans</item>
+	<item>Droid Serif</item>
+	<item>Droid Mono</item>
+  </string-array><string-array name="fontSizeArray">
+	<item>10</item>
+	<item>11</item>
+	<item>12</item>
+	<item>13</item>
+	<item>14</item>
+	<item>15</item>
+	<item>16</item>
+	<item>17</item>
+	<item>18</item>
+	<item>19</item>
+	<item>20</item>
+	<item>21</item>
+	<item>22</item>
+	<item>23</item>
+	<item>24</item>
+	<item>25</item>
+	<item>26</item>
+	<item>27</item>
+	<item>28</item>
+	<item>29</item>
+	<item>30</item>
+	<item>31</item>
+	<item>32</item>
+	<item>33</item>
+	<item>34</item>
+	<item>35</item>
+	<item>36</item>
+	<item>37</item>
+	<item>38</item>
+	<item>39</item>
+	<item>40</item>
+  </string-array></file><file path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/values/styles.xml" qualifiers=""><style name="header" parent="@android:style/TextAppearance.Medium">
+		<item name="android:textStyle">bold</item>
+	</style><style name="alert">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#600</item>
+	</style><style name="TextBufferWindow" parent="@android:style/Widget.TextView">
+		<item name="android:scrollbars">none</item>
+		<item name="android:inputType">text|textMultiLine|textNoSuggestions</item>
+	</style><style name="blockquote">
+		<item name="android:textStyle">italic</item>
+	</style><style name="preformatted" parent="@style/TextGridWindow.TextAppearance"/><style name="note">
+		<item name="android:textStyle">italic</item>
+	</style><style name="user2">
+		<item name="android:textColor">#060</item>
+	</style><style name="normal">
+	</style><style name="user1">
+		<item name="android:textColor">#006</item>
+	</style><style name="emphasized">
+		<item name="android:textStyle">italic</item>
+	</style><style name="input">
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">#060</item>
+	</style><style name="TextBufferWindowEdit" parent="@android:style/Widget.TextView">
+		<item name="android:scrollbars">none</item>
+		<item name="android:inputType">text|textMultiLine</item>
+	</style><style name="theme" parent="@android:style/Theme.Light.NoTitleBar">
+		<item name="textBufferWindowStyle">@style/TextBufferWindow</item>
+		<item name="textBufferWindowEditStyle">@style/TextBufferWindowEdit</item>
+		<item name="textGridWindowStyle">@style/TextGridWindow</item>
+	</style><style name="subheader">
+		<item name="android:textStyle">bold</item>
+	</style><style name="TextGridWindow.TextAppearance" parent="@android:style/TextAppearance.Small">
+		<item name="android:typeface">monospace</item> <!-- we don't use this, only here for completeness -->
+		<item name="android:textSize">11dip</item>
+	</style><style name="TextGridWindow" parent="@android:style/Widget.TextView">
+<!--	makes the whole window white, why?	<item name="android:background">?android:attr/colorBackground</item>-->
+		<item name="android:textAppearance">@style/TextGridWindow.TextAppearance</item>
+	</style></file><file path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/values/strings.xml" qualifiers=""><string name="downloading_stories">Downloading stories...</string><string name="download_preselected">Download preselected</string><string name="pick_transcript">Pick transcript</string><string name="empty_list">You seem to have no stories installed.
+    	To install one, just put it in the Interactive Fiction directory of the SD card.
+    	You may find many stories at IFDb, or you can just
+    	let me download for you a handful to get you started. 
+		Z-Code files (ending in .z1-.z8, .zblorb, or .zlb) and
+		Tads files (ending in .t2, t3, or .gam) are currently supported.
+   	</string><string name="preferences">Preferences</string><string name="delete_confirm">Really delete this game?</string><string name="pick_input_record">Pick input record</string><string name="install_failure">Could not read the story file.</string><string name="game_quit">The game has quit. You can examine the output.\nUse the BACK button to exit.</string><string name="restart">Restart</string><string name="examining_file">Examining file %s...</string><string name="go_to_ifdb">Go to IFDb</string><string name="restart_warning">Do you want to restart the story? (This won\'t affect your saved states.)</string><string name="pick_saved_game">Pick saved game</string><string name="edit">Edit</string><string name="name">Name</string><string name="hunky_punk">Hunky Punk</string><string name="install_success">Successfully installed a new story.</string><string name="edit_title">Edit Game Title</string><string name="remove">Remove</string><string name="pick_data">Pick data file</string><string name="about">About</string><string name="delete_title">Delete Game?</string><string name="looking_up">Please wait while I\'m looking up details on IFDb...</string><string name="create_new_file">Create new...</string><string name="ifdb_connection_error">Could not connect to IFDb to lookup details about your stories. Please try again another time.</string><string name="new_data">New data file</string><string name="please_wait">Please wait</string><string name="forgiveness_s">Forgiveness: %s</string><string name="new_input_record">New input record</string><string name="lookup_failure">Could not connect to IFDb to lookup details about the story.</string><string name="open">Open</string><string name="replace_warning">This file already exists. Do you want to replace it?</string><string name="install_with_hunky_punk">Install with Hunky Punk</string><string name="language_s">Language: %s</string><string name="app_name">Hunky Punk</string><string name="seriesnumber_s">Number in series: %s</string><string name="series_s">Series: %s</string><string name="new_transcript">New transcript</string><string name="by_author">by %s</string><string name="modify_warning">Do you want to modify this file?</string><string name="delete">Delete</string><string name="new_saved_game">New saved game</string><string name="first_published_s">First published: %s</string><string name="group_s">Group: %s</string><string name="genre_s">Genre: %s</string><string name="game_details">Story details</string></file><file name="game_details_header_title" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header_title.xml" qualifiers="" type="layout"/><file name="floating_notification" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/floating_notification.xml" qualifiers="" type="layout"/><file name="games_list" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/games_list.xml" qualifiers="" type="layout"/><file name="game_details_header" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header.xml" qualifiers="" type="layout"/><file name="menu_game_details" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_game_details.xml" qualifiers="" type="layout"/><file name="menu_main" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_main.xml" qualifiers="" type="layout"/><file name="game_details" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details.xml" qualifiers="" type="layout"/><file name="game_details_header" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout-land/game_details_header.xml" qualifiers="land" type="layout"/><file name="preferences" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/xml/preferences.xml" qualifiers="" type="xml"/><file name="icon" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable-mdpi-v5/icon.png" qualifiers="mdpi-v5" type="drawable"/><file name="menu_delete" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_delete.png" qualifiers="" type="drawable"/><file name="text_window_background" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/text_window_background.xml" qualifiers="" type="drawable"/><file name="menu_help" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_help.png" qualifiers="" type="drawable"/><file name="icon" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/icon.png" qualifiers="" type="drawable"/><file name="menu_preferences" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_preferences.png" qualifiers="" type="drawable"/><file name="menu_edit" path="/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_edit.png" qualifiers="" type="drawable"/></source><source path="/home/beni/son_of_hunkypunk-master2/app/build/generated/res/rs/debug"/><source path="/home/beni/son_of_hunkypunk-master2/app/build/generated/res/resValues/debug"/></dataSet><dataSet config="debug" generated-set="debug$Generated"><source path="/home/beni/son_of_hunkypunk-master2/app/src/debug/res"/></dataSet><mergedItems/></merger>
