@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical" >
+
+<ImageButton android:id="@+id/compass_east"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:src="@drawable/ra32"
+android:layout_alignParentRight="true"
+android:layout_centerVertical="true"/>
+
+<ImageButton android:id="@+id/compass_west"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:src="@drawable/la32"
+android:layout_alignParentLeft="true"
+android:layout_centerVertical="true"/>
+
+<ImageButton android:id="@+id/compass_north"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:src="@drawable/ua32"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true"/>
+
+<ImageButton android:id="@+id/compass_south"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:src="@drawable/da32"
+android:layout_alignParentBottom="true"
+android:layout_centerHorizontal="true"/>
+</RelativeLayout>
