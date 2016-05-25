@@ -1,130 +1,143 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:21:1-195:12
-	xmlns:android
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:21:11-69
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:20:1-210:12
 	package
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:22:7-37
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:21:5-35
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:24:7-32
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:23:5-30
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
 	android:versionCode
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:23:7-30
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:22:5-28
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:20:11-69
 supports-screens
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:26:5-31:7
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:25:5-29:39
 	android:largeScreens
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:29:6-33
-	android:anyDensity
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:30:6-31
-	android:normalScreens
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:28:6-34
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:27:9-36
 	android:smallScreens
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:27:6-33
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:29:9-36
+	android:normalScreens
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:28:9-37
+	android:anyDensity
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:26:9-34
 uses-permission#android.permission.INTERNET
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:32:2-63
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:31:5-67
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:32:19-61
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:31:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:33:2-77
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:32:5-81
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:33:19-75
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:32:22-78
 application
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:34:5-193:16
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:34:5-208:19
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:34:48-80
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:37:9-41
 	android:debuggable
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:35:5-30
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:35:9-34
 	android:icon
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:34:18-47
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:36:9-38
 activity#org.andglk.hunkypunk.Interpreter
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:37:9-47:20
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:39:9-49:20
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:38:19-51
-	android:configChanges
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:40:7-116
-	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:37:19-66
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:42:13-45
 	android:launchMode
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:39:7-38
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:43:13-44
+	android:configChanges
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:41:13-122
+	android:name
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:40:13-60
 intent-filter#android.intent.action.VIEW
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:44:13-46:29
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:46:13-48:29
 action#android.intent.action.VIEW
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:45:17-69
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:47:17-69
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:45:25-66
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:47:25-66
 provider#org.andglk.hunkypunk.HunkyPunkProvider
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:48:6-50:8
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:50:9-52:68
 	android:authorities
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:49:7-59
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:52:13-65
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:48:16-49
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:51:13-46
 activity#org.andglk.hunkypunk.GamesList
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:51:6-58:14
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:54:9-61:20
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:52:7-41
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:56:13-47
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:51:16-41
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:55:13-38
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:54:4-57:20
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:57:13-60:29
 action#android.intent.action.MAIN
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:55:5-57
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:58:17-69
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:55:13-54
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:58:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:56:5-65
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:59:17-77
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:56:15-62
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:59:27-74
 activity#org.andglk.hunkypunk.GameDetails
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:59:6-67:17
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:62:9-72:20
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:60:7-43
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:64:13-49
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:59:16-43
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:63:13-40
 intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:62:4-66:20
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:65:13-71:29
 data
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:64:5-84
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:67:17-69:48
 	android:host
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:64:36-81
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:68:21-66
 	android:scheme
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:64:11-35
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:69:21-45
 category#android.intent.category.DEFAULT
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:65:5-64
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:70:17-76
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:65:15-61
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:70:27-73
 activity-alias#org.andglk.hunkypunk.InstallGame
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:68:6-183:20
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:74:9-191:26
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:69:7-41
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:77:13-47
 	android:excludeFromRecents
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:72:4-37
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:76:13-46
 	android:targetActivity
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:71:7-44
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:78:13-50
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:70:7-34
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:75:13-40
 intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:75:5-85:21
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:80:13-91:29
 category#android.intent.category.BROWSABLE
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:78:4-65
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:84:17-78
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:78:14-62
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:84:27-75
 activity#org.andglk.hunkypunk.PreferencesActivity
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:185:3-191:14
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:193:9-200:20
 	android:label
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:185:49-84
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:195:13-48
 	android:name
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:185:13-48
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:194:13-48
+meta-data#com.google.android.gms.version
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:204:9-206:69
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:206:13-66
+	android:name
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:205:13-58
 uses-sdk
-ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:194:5-44
+ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:209:5-44
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml:194:15-41
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
-		INJECTED from /home/beni/son_of_hunkypunk-master2/app/src/main/AndroidManifest.xml
+		ADDED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml:209:15-41
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_FilePath\app\src\main\AndroidManifest.xml

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 14
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "org.andglk.hunkypunk"
-        minSdkVersion 16
-        targetSdkVersion 16
+        minSdkVersion 14
+        targetSdkVersion 14
     }
+
     sourceSets.main {
         jni.srcDirs = [] // This prevents the auto generation of Android.mk
     }
@@ -19,4 +19,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+}
+
+dependencies {
+compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable-hdpi-v5/icon.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable-hdpi-v5/icon.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v5\\icon.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\drawable-hdpi-v5\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v5\\icon.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\drawable-hdpi-v5\\icon.png"
     }
 ]

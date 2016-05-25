@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout-land/game_details_header.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout-land/game_details_header.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\game_details_header.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout-land\\game_details_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout-land\\game_details_header.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout-land\\game_details_header.xml"
     }
 ]

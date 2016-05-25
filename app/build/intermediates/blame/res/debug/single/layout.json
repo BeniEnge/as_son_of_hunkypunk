@@ -1,30 +1,66 @@
 [
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/menu_game_details.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_game_details.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\games_list.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\games_list.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details_header_title.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\game_details_header_title.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details_header_title.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header_title.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details_header_title.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\game_details_header_title.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/menu_main.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/menu_main.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\game_details.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/games_list.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/games_list.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details_header.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\game_details_header.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/floating_notification.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/floating_notification.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\chooser.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\chooser.xml"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/layout/game_details_header.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/layout/game_details_header.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details_header.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\game_details_header.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\games_list.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\games_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_main.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_game_details.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\menu_game_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_game_details.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\menu_game_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\chooser.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\chooser.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\floating_notification.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\floating_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_main.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\hunkypunk\\app\\src\\main\\res\\layout\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\game_details.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\game_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\build\\intermediates\\res\\merged\\debug\\layout\\floating_notification.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_FilePath\\app\\src\\main\\res\\layout\\floating_notification.xml"
     }
 ]

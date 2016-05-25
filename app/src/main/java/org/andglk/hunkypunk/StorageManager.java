@@ -45,94 +45,95 @@ import android.util.Log;
 import android.database.sqlite.SQLiteDatabase;
 
 public class StorageManager {
-	public static final int DONE = 0;
-	public static final int INSTALLED = 1;
-	public static final int INSTALL_FAILED = 2;
+    public static final int DONE = 0;
+    public static final int INSTALLED = 1;
+    public static final int INSTALL_FAILED = 2;
 
-	private static final String TAG = "hunkypunk.MediaScanner";
-	private static final String[] PROJECTION = { Games._ID, Games.PATH };
-	private static final int _ID = 0;
-	private static final int PATH = 1;
+    private static final String TAG = "hunkypunk.MediaScanner";
+    private static final String[] PROJECTION = {Games._ID, Games.PATH};
+    private static final int _ID = 0;
+    private static final int PATH = 1;
 
-	private final ContentResolver mContentResolver;
-	private Handler mHandler;
-	private DatabaseHelper mOpenHelper;
-	
-	private StorageManager(Context context) {
-		mContentResolver = context.getContentResolver();
-		mOpenHelper = new DatabaseHelper(context);
-	}
-	
-	private static StorageManager sInstance;
-	
-	public static StorageManager getInstance(Context context) {
-		if (sInstance == null) sInstance = new StorageManager(context);
-		
-		assert(sInstance.mContentResolver == context.getContentResolver());
-		return sInstance;
-	}
+    private final ContentResolver mContentResolver;
+    private Handler mHandler;
+    private DatabaseHelper mOpenHelper;
 
-	public void setHandler(Handler h) {
-		mHandler = h;
-	}
+    private StorageManager(Context context) {
+        mContentResolver = context.getContentResolver();
+        mOpenHelper = new DatabaseHelper(context);
+    }
 
-	public String gameInstalledFilePath(File f) {
-		String ifid = null;
-		String path = null;
+    private static StorageManager sInstance;
 
-		try {
-			ifid = Babel.examine(f);
-		}catch(Exception e){}
-		
-		if (ifid == null)
-			return path;
-		
-		Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
-		Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);		
-		if (query != null || query.getCount() == 1)
-			if (query.moveToNext())
-				path = query.getString(PATH);			
-		return path;
-	}
-	
-	public void checkExisting() {
-		Cursor c = mContentResolver.query(Games.CONTENT_URI, PROJECTION, Games.PATH + " IS NOT NULL", null, null);
-		
-		while (c.moveToNext())
-			if (!new File(c.getString(PATH)).exists()) {
-				ContentValues cv = new ContentValues();
-				cv.putNull(Games.PATH);
-				mContentResolver.update(ContentUris.withAppendedId(Games.CONTENT_URI, c.getLong(_ID)), cv, null, null);
-			}
-		
-		c.close();
-	}
+    public static StorageManager getInstance(Context context) {
+        if (sInstance == null) sInstance = new StorageManager(context);
 
-	public void scan(File dir) {
-		if (!dir.exists() || !dir.isDirectory())
-			return;
-		
-		final File[] files = dir.listFiles();
-		if (files == null)
-			return;
+        assert (sInstance.mContentResolver == context.getContentResolver());
+        return sInstance;
+    }
 
-		for (File f : files)
-			if (!f.isDirectory())
-				try {
-					
-					String g = f.getName().toLowerCase();
-					if (
-						/* zcode: frotz, nitfol */
-						g.matches(".*\\.z[1-9]$")
-						|| g.matches(".*\\.dat$")
-						|| g.matches(".*\\.zcode$")
-						|| g.matches(".*\\.zblorb$")
-						|| g.matches(".*\\.zlb$")
+    public void setHandler(Handler h) {
+        mHandler = h;
+    }
+
+    public String gameInstalledFilePath(File f) {
+        String ifid = null;
+        String path = null;
+
+        try {
+            ifid = Babel.examine(f);
+        } catch (Exception e) {
+        }
+
+        if (ifid == null)
+            return path;
+
+        Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
+        Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
+        if (query != null || query.getCount() == 1)
+            if (query.moveToNext())
+                path = query.getString(PATH);
+        return path;
+    }
+
+    public void checkExisting() {
+        Cursor c = mContentResolver.query(Games.CONTENT_URI, PROJECTION, Games.PATH + " IS NOT NULL", null, null);
+
+        while (c.moveToNext())
+            if (!new File(c.getString(PATH)).exists()) {
+                ContentValues cv = new ContentValues();
+                cv.putNull(Games.PATH);
+                mContentResolver.update(ContentUris.withAppendedId(Games.CONTENT_URI, c.getLong(_ID)), cv, null, null);
+            }
+
+        c.close();
+    }
+
+    public void scan(File dir) {
+        if (!dir.exists() || !dir.isDirectory())
+            return;
+
+        final File[] files = dir.listFiles();
+        if (files == null)
+            return;
+
+        for (File f : files)
+            if (!f.isDirectory())
+                try {
+
+                    String g = f.getName().toLowerCase();
+                    if (
+                        /* zcode: frotz, nitfol */
+                            g.matches(".*\\.z[1-9]$")
+                                    || g.matches(".*\\.dat$")
+                                    || g.matches(".*\\.zcode$")
+                                    || g.matches(".*\\.zblorb$")
+                                    || g.matches(".*\\.zlb$")
 
 						/* tads */
-						|| g.matches(".*\\.gam$")
-						|| g.matches(".*\\.t2$")
-						|| g.matches(".*\\.t3$")
+                                    || g.matches(".*\\.gam$")
+                                    || g.matches(".*\\.t2$")
+                                    || g.matches(".*\\.t3$")
 
 						/* glulx */
 						/*
@@ -142,167 +143,169 @@ public class StorageManager {
 						|| g.matches(".*\\.glb$")
 						|| g.matches(".*\\.ulx$")
 						*/
-						)
-						checkFile(f);
-				} catch (IOException e) {
-					Log.w(TAG, "IO exception while checking " + f, e);
-				}
-			else
-				scan(f);
-	}
+                            )
+                        checkFile(f);
+                } catch (IOException e) {
+                    Log.w(TAG, "IO exception while checking " + f, e);
+                }
+            else
+                scan(f);
+    }
 
-	public void updateGame(String ifid, String title) {
-		Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
-		Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
-		
-		ContentValues cv = new ContentValues();
-		cv.put(Games.TITLE, title);
-		
-		if (query != null && query.getCount() == 1) 
-			mContentResolver.update(uri, cv, null, null);
-		
-		query.close();	
-	}
+    public void updateGame(String ifid, String title) {
+        Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
+        Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
 
-	public void deleteGame(String ifid) {
-		String path = null;
-		Uri uri = HunkyPunk.Games.uriOfIfid(ifid);
-		//Log.d("StorageManager",uri.toString());
-		Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);		
-		if (query != null || query.getCount() == 1)
-			if (query.moveToNext())
-				path = query.getString(PATH);			
+        ContentValues cv = new ContentValues();
+        cv.put(Games.TITLE, title);
 
-		if (path != null){
-			File fp = new File(path);
-			if (fp.exists()) fp.delete();
-		}
-		query.close();
+        if (query != null && query.getCount() == 1)
+            mContentResolver.update(uri, cv, null, null);
 
-		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
-		db.execSQL("delete from games where ifid = '"+ifid+"'");
-	}
+        query.close();
+    }
 
-	private String checkFile(File f) throws IOException {
-		String ifid = Babel.examine(f);		
-		if (ifid == null) return null;
+    public void deleteGame(String ifid) {
+        String path = null;
+        Uri uri = HunkyPunk.Games.uriOfIfid(ifid);
+        //Log.d("StorageManager",uri.toString());
+        Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
+        if (query != null || query.getCount() == 1)
+            if (query.moveToNext())
+                path = query.getString(PATH);
 
-		return checkFile(f, ifid);
-	}
-	private String checkFile(File f, String ifid) throws IOException {
-		if (ifid == null) ifid = Babel.examine(f);
-		if (ifid == null) return null;
-		
-		Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
-		Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
-		
-		ContentValues cv = new ContentValues();
-		cv.put(Games.PATH, f.getAbsolutePath());
-		
-		if (query == null || query.getCount() != 1) {
-			cv.put(Games.IFID, ifid);
-			final String fname = f.getName();
-			cv.put(Games.TITLE, fname.substring(0, fname.lastIndexOf('.')));
-			mContentResolver.insert(Games.CONTENT_URI, cv);
-		} else
-			mContentResolver.update(uri, cv, null, null);
-		
-		query.close();
-		return ifid;
-	}
+        if (path != null) {
+            File fp = new File(path);
+            if (fp.exists()) fp.delete();
+        }
+        query.close();
 
-	public void startCheckingFile(final File file) {
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					String ifid;
-					if ((ifid = checkFile(file)) != null) {
-						Message.obtain(mHandler, INSTALLED, ifid).sendToTarget();
-						return;
-					}
-				} catch (IOException e) {
-				}
-				
-				Message.obtain(mHandler, INSTALL_FAILED).sendToTarget();
-			}
-		}.run();
-	}
+        SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        db.execSQL("delete from games where ifid = '" + ifid + "'");
+    }
 
-	public void startScan() {
-		new Thread() {
-			@Override
-			public void run() {
-				scan(Paths.ifDirectory());
-				Message.obtain(mHandler, DONE).sendToTarget();
-			}
-		}.start();
-	}
+    private String checkFile(File f) throws IOException {
+        String ifid = Babel.examine(f);
+        if (ifid == null) return null;
 
-	public static String unknownContent = "IFID_";
-	public void startInstall(final Uri game, final String scheme) {
-		new Thread() {
-			@Override
-			public void run() {
+        return checkFile(f, ifid);
+    }
 
-				File fgame = null;
-				File ftemp = null;
-				String ifid = null;
+    private String checkFile(File f, String ifid) throws IOException {
+        if (ifid == null) ifid = Babel.examine(f);
+        if (ifid == null) return null;
 
-				try {
-					if (scheme.equals(ContentResolver.SCHEME_CONTENT)) {
-						ftemp = File.createTempFile(unknownContent,null,Paths.tempDirectory());
-						InputStream in = mContentResolver.openInputStream(game);
-						OutputStream out = new FileOutputStream(ftemp);
-						Utils.copyStream(in, out);
-						in.close(); out.close();
+        Uri uri = Uri.withAppendedPath(Games.CONTENT_URI, ifid);
+        Cursor query = mContentResolver.query(uri, PROJECTION, null, null, null);
 
-						ifid = Babel.examine(ftemp);
+        ContentValues cv = new ContentValues();
+        cv.put(Games.PATH, f.getAbsolutePath());
 
-						//TODO: obtain terp from Babel
-						String ext = "zcode";					
-						if (ifid.indexOf("TADS")==0) ext="gam";
+        if (query == null || query.getCount() != 1) {
+            cv.put(Games.IFID, ifid);
+            final String fname = f.getName();
+            cv.put(Games.TITLE, fname.substring(0, fname.lastIndexOf('.')));
+            mContentResolver.insert(Games.CONTENT_URI, cv);
+        } else
+            mContentResolver.update(uri, cv, null, null);
 
-						fgame = new File(Paths.tempDirectory().getAbsolutePath() 
-												 + "/" + unknownContent + ifid + "." + ext);
-						ftemp.renameTo(fgame);
-					}
-					else {
-						fgame = new File(game.getPath());
-					}
+        query.close();
+        return ifid;
+    }
 
-					String src = fgame.getAbsolutePath();
-					String dst = Paths.ifDirectory().getAbsolutePath()+"/"+fgame.getName();		
-					String installedPath = gameInstalledFilePath(fgame);
+    public void startCheckingFile(final File file) {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    String ifid;
+                    if ((ifid = checkFile(file)) != null) {
+                        Message.obtain(mHandler, INSTALLED, ifid).sendToTarget();
+                        return;
+                    }
+                } catch (IOException e) {
+                }
 
-					if (installedPath == null || !(new File(installedPath).exists())) {
-						if (!dst.equals(src)) {
-							InputStream in = new FileInputStream(src);
-							OutputStream out = new FileOutputStream(dst);
+                Message.obtain(mHandler, INSTALL_FAILED).sendToTarget();
+            }
+        }.run();
+    }
 
-							Utils.copyStream(in,out);
-							in.close(); out.close();
-						}
-					}
-					else {
-						dst = installedPath;
-					}
+    public void startScan() {
+        new Thread() {
+            @Override
+            public void run() {
+                scan(Paths.ifDirectory());
+                Message.obtain(mHandler, DONE).sendToTarget();
+            }
+        }.start();
+    }
 
-					if ((ifid = checkFile(new File(dst), ifid)) != null) {
-						Message.obtain(mHandler, INSTALLED, ifid).sendToTarget();
-						return;
-					}
-				} catch (Exception e){
-					Log.i("HunkyPunk/StorageManager",e.toString());
-				} finally {
-					if (scheme.equals(ContentResolver.SCHEME_CONTENT)) {
-						if (ftemp != null && ftemp.exists()) ftemp.delete();
-						if (fgame != null && fgame.exists()) fgame.delete();
-					}
-				}
+    public static String unknownContent = "IFID_";
 
-				Message.obtain(mHandler, INSTALL_FAILED).sendToTarget();
-			}
-		}.start();
-	}
+    public void startInstall(final Uri game, final String scheme) {
+        new Thread() {
+            @Override
+            public void run() {
+
+                File fgame = null;
+                File ftemp = null;
+                String ifid = null;
+
+                try {
+                    if (scheme.equals(ContentResolver.SCHEME_CONTENT)) {
+                        ftemp = File.createTempFile(unknownContent, null, Paths.tempDirectory());
+                        InputStream in = mContentResolver.openInputStream(game);
+                        OutputStream out = new FileOutputStream(ftemp);
+                        Utils.copyStream(in, out);
+                        in.close();
+                        out.close();
+
+                        ifid = Babel.examine(ftemp);
+
+                        //TODO: obtain terp from Babel
+                        String ext = "zcode";
+                        if (ifid.indexOf("TADS") == 0) ext = "gam";
+
+                        fgame = new File(Paths.tempDirectory().getAbsolutePath()
+                                + "/" + unknownContent + ifid + "." + ext);
+                        ftemp.renameTo(fgame);
+                    } else {
+                        fgame = new File(game.getPath());
+                    }
+
+                    String src = fgame.getAbsolutePath();
+                    String dst = Paths.ifDirectory().getAbsolutePath() + "/" + fgame.getName();
+                    String installedPath = gameInstalledFilePath(fgame);
+
+                    if (installedPath == null || !(new File(installedPath).exists())) {
+                        if (!dst.equals(src)) {
+                            InputStream in = new FileInputStream(src);
+                            OutputStream out = new FileOutputStream(dst);
+
+                            Utils.copyStream(in, out);
+                            in.close();
+                            out.close();
+                        }
+                    } else {
+                        dst = installedPath;
+                    }
+
+                    if ((ifid = checkFile(new File(dst), ifid)) != null) {
+                        Message.obtain(mHandler, INSTALLED, ifid).sendToTarget();
+                        return;
+                    }
+                } catch (Exception e) {
+                    Log.i("HunkyPunk/StorageManager", e.toString());
+                } finally {
+                    if (scheme.equals(ContentResolver.SCHEME_CONTENT)) {
+                        if (ftemp != null && ftemp.exists()) ftemp.delete();
+                        if (fgame != null && fgame.exists()) fgame.delete();
+                    }
+                }
+
+                Message.obtain(mHandler, INSTALL_FAILED).sendToTarget();
+            }
+        }.start();
+    }
 }
