@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86_64"
+    abi="x86"
     api-level="23"
-    density="xhdpi"
+    density="420dpi"
     format="7"
-    timestamp="6540170172596" >
+    timestamp="196430021493630" >
 
     <task
         name="javac"
-        duration="6051" />
+        duration="2948" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="19546" />
+        duration="2783" />
     <task
         name="verifier"
-        duration="32" />
+        duration="353" />
 
     <artifact
-        location="/home/beni/son_of_hunkypunk-master2/app/build/outputs/apk/app-debug.apk"
+        location="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="6540170172596" >
+    <build timestamp="196430021493630" >
         <artifact
-            location="/home/beni/son_of_hunkypunk-master2/app/build/outputs/apk/app-debug.apk"
+            location="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
 

@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="1d036e951ad610b72becd9a2470a5e3f3a9b8b5f">
-        <dex dex="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7f83cbe8ec1d6b522d769c376d43da82f134e721/classes.dex" />
+        sha1="711b5782020dc4e78a9cbee2d74b7bd299cfe538">
+        <dex dex="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d26be63ffa3724e4ddfe2c63ccdf02fac6fa1c3f\classes.dex" />
     </item>
     <item
-        jar="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="b744f9568f4117be0b468d14547c7d185354c33a">
-        <dex dex="/home/beni/son_of_hunkypunk-master2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d8315ce07c741a36b6023e7b233210712d9b740f/classes.dex" />
+        sha1="1a4493da35dd941e3bd910c5a3126a8c624c36ca">
+        <dex dex="C:\Users\Orkan\workspace\hunky\as_son_of_hunkypunk_Kompass\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7f9f726da003c1fdd44581932a44faa5cf18591d\classes.dex" />
     </item>
 
 </items>

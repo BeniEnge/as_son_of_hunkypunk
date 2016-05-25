@@ -17,6 +17,31 @@
     along with Hunky Punk.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+/* Comments by: JPDOB-Team, NAME
+*               University of Constance, 2016
+*
+* Copyright: The following version of 'Son of Hunky Punk' obeys the 
+*            GNU General Public License. Since it is clearly stated in  
+*            5.  c),  'Son of Hunky Punk' obeys only the GNU GPL v3.
+*            All modifications are (to be) done according to the GNU 
+*            GPL v3, paragraph 5.
+*            
+*            All contributors as of GNU GPL are in a way stated.
+*
+*
+*            Class TextBufferWindow contains public:
+*                      class _SavedState: Standard implementation of Parcelable, which is more 
+*			                  code but far better performance(10x) than the Serializable interface. 
+*                                         Individual comments are provided above the respective methods.
+*                   private:
+*                      class _Stream:
+*                      class _ScrollView:
+*                      class _CommandView:
+*                      class _PromptView:
+*                      class _View:
+*                                     public class _MovementMethod:  
+*/
 package org.andglk.glk;
 
 import java.io.IOException;
@@ -61,6 +86,7 @@ import android.widget.TextView.OnEditorActionListener;
 
 
 public class TextBufferWindow extends Window {
+
 	public static class _SavedState implements Parcelable {
 		public static final Parcelable.Creator<_SavedState> CREATOR = new Parcelable.Creator<_SavedState>() {
 			@Override
@@ -74,11 +100,12 @@ public class TextBufferWindow extends Window {
 			}
 		};
 		
-		public Parcelable mSuperState;
+		public Parcelable mSuperState; /* This Parcelable will be the saved state of the super class */
 		public boolean mLineInputEnabled;
 		public int mLineInputStart;
 		public boolean mCharInputEnabled;
 
+		/* Used to restore from a saved state */
 		public _SavedState(Parcel source) {
 			mSuperState = TextView.SavedState.CREATOR.createFromParcel(source);
 			mLineInputEnabled = source.readByte() == 1;
@@ -86,6 +113,7 @@ public class TextBufferWindow extends Window {
 			mLineInputStart = source.readInt();
 		}
 
+		/**/
 		public _SavedState() {
 		}
 
@@ -426,6 +454,9 @@ public class TextBufferWindow extends Window {
 			}
 		}
 
+		/* super.onSaveInstanceState is called and a new SavedState is created using the returned Parcelable.
+                 * All we have to do is to restore the state in onRestoreInstanceState().
+		 */
 		@Override
 		public Parcelable onSaveInstanceState() {
 			TextBufferWindow._SavedState ss = new TextBufferWindow._SavedState();
@@ -508,6 +539,8 @@ public class TextBufferWindow extends Window {
 			}
 		}
 
+		/* The saved state of the super class is available via the 'mSuperState' Parcelable object.  The super class restores it’s state by calling 			 * super.onRestoreInstanceState.
+		 */
 		@Override
 		public void onRestoreInstanceState(Parcelable state) {
 			TextBufferWindow._SavedState ss = (_SavedState) state;
@@ -671,7 +704,7 @@ public class TextBufferWindow extends Window {
 		}
 	}
 
-	public static String DefaultFontPath = null;
+	public static String DefaultFontName = null;
 	public static int DefaultFontSize = 0;
 	public String FontPath = null;
 	public int FontSize = 0;
@@ -795,15 +828,19 @@ public class TextBufferWindow extends Window {
 			
 			//TODO: this is broken & disabled for now
 
-			// if (DefaultFontPath.endsWith("ttf") 
-			// 	|| DefaultFontPath.endsWith("otf"))
-			// 	try {
-			// 		tf = Typeface.createFromFile(DefaultFontPath);
-			// 	} catch (Exception ex) {}
-			// else if (DefaultFontPath.endsWith("Droid Sans")) 
-			// 	tf = Typeface.SANS_SERIF;
-			// else if (DefaultFontPath.endsWith("Droid Mono")) 
-			// 	tf = Typeface.MONOSPACE;
+			 if (DefaultFontName.endsWith("Droid Serif")) 
+			 //	|| DefaultFontName.endsWith("otf"))
+			 	try {
+			 		tf = Typeface.createFromAsset(mContext.getAssets(), "Fonts/DroidSerif.ttf");
+			 	} catch (Exception ex) {}
+			 else if (DefaultFontName.endsWith("Droid Sans")) 
+			 	tf = Typeface.SANS_SERIF;
+			 else if (DefaultFontName.endsWith("Droid Mono")) 
+			 	tf = Typeface.MONOSPACE;
+			 else if (DefaultFontName.endsWith("Daniel"))
+			 	try {
+			 		tf = Typeface.createFromAsset(mContext.getAssets(), "Fonts/Daniel.ttf");
+			 	} catch (Exception ex) {}
 
 			if (tf == null) tf = Typeface.SERIF;
 

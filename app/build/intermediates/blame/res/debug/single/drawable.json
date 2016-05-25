@@ -1,26 +1,42 @@
 [
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_delete.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_delete.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menu_preferences.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\menu_preferences.png"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_edit.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_edit.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\da32.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\da32.png"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/icon.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/icon.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menu_edit.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\menu_edit.png"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/text_window_background.xml",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/text_window_background.xml"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menu_help.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\menu_help.png"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_preferences.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_preferences.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ua32.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\ua32.png"
     },
     {
-        "merged": "/home/beni/son_of_hunkypunk-master2/app/build/intermediates/res/merged/debug/drawable/menu_help.png",
-        "source": "/home/beni/son_of_hunkypunk-master2/app/src/main/res/drawable/menu_help.png"
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menu_delete.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\menu_delete.png"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\la32.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\la32.png"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\text_window_background.xml",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\text_window_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ra32.png",
+        "source": "C:\\Users\\Orkan\\workspace\\hunky\\as_son_of_hunkypunk_Kompass\\app\\src\\main\\res\\drawable\\ra32.png"
     }
 ]

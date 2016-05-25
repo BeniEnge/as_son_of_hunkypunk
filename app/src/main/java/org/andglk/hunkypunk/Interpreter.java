@@ -17,6 +17,27 @@
     along with Hunky Punk.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+/* Comments by: JPDOB-Team, Dimitar Garkov
+ *               University of Constance, 2016
+ *
+ * Copyright: The following version of 'Son of Hunky Punk' obeys the 
+ *            GNU General Public License. Since it is clearly stated in  
+ *            5. c), 'Son of Hunky Punk' obeys only the GNU GPL v3.
+ *            All modifications are (to be) done according to 
+ *            the GNU General Public License version 3, paragraph 5.
+ *            
+ *            All contributors as of GNU GPL are in a way stated.
+ *
+ *
+ * The Interpreter Activity takes care for the interactions with the single games.
+ * It loads stories and checks their endings. The setFont() bug is fixed and 
+ * now works correctly.
+ * It then accepts input and *interprets*, i.e. passes it to the story. This,
+ * however, is implemented not here, but only loaded.
+ */
+
+
 package org.andglk.hunkypunk;
 
 import java.io.File;
@@ -50,10 +71,30 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+//Debug
+import android.widget.Toast;
+//added
+import android.view.View;
+import android.view.Gravity;
+//import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout.LayoutParams;
+import android.view.LayoutInflater;
+import android.content.Context; 
+import android.widget.FrameLayout;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.RelativeLayout;
+
+
 public class Interpreter extends Activity {
     private static final String TAG = "hunkypunk.Interpreter";
 	private Glk glk;
 	private File mDataDir;
+	private ImageButton compassNorth;
+	private ImageButton compassEast;
+	private ImageButton compassSouth;
+	private ImageButton compassWest;
 
 	/** Called when the activity is first created. */
     @Override
@@ -74,6 +115,14 @@ public class Interpreter extends Activity {
 		glk = new Glk(this);
 
         setContentView(glk.getView());
+	/*added*/
+	LayoutInflater compassInflater = (LayoutInflater) getSystemService (Context.LAYOUT_INFLATER_SERVICE);
+    	compassInflater = LayoutInflater.from(getApplicationContext());
+	View mView = compassInflater.inflate(R.layout.compass_button, null);
+	FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        lp.gravity=Gravity.CENTER;
+        addContentView(mView, lp);
+	/*/added*/
 		glk.setAutoSave(getBookmark(), 0);
         glk.setSaveDir(saveDir);
         glk.setTranscriptDir(Paths.transcriptDirectory()); // there goes separation, and so cheaply...
@@ -102,6 +151,40 @@ public class Interpreter extends Activity {
 			   or the OS has killed our app and is now restoring state */
         	loadBookmark();
 		}
+	/*added*/
+	compassNorth = (ImageButton) findViewById(R.id.compass_north);
+	compassNorth.setOnClickListener(new OnClickListener(){
+		@Override
+		public void onClick(View view) {
+			//debugging msg
+ 			Toast.makeText(getApplicationContext(), "Go North!",Toast.LENGTH_LONG).show();
+		}
+	});
+	compassEast = (ImageButton) findViewById(R.id.compass_east);
+	compassEast.setOnClickListener(new OnClickListener(){
+		@Override
+		public void onClick(View view) {
+		//debugging msg
+ 		Toast.makeText(getApplicationContext(), "Go East!",Toast.LENGTH_LONG).show();
+		}
+	});
+	compassSouth = (ImageButton) findViewById(R.id.compass_south);
+	compassSouth.setOnClickListener(new OnClickListener(){
+		@Override
+		public void onClick(View view) {
+			//debugging msg
+ 			Toast.makeText(getApplicationContext(), "Go South!",Toast.LENGTH_LONG).show();
+		}
+	});
+	compassWest = (ImageButton) findViewById(R.id.compass_west);
+	compassWest.setOnClickListener(new OnClickListener(){
+		@Override
+		public void onClick(View view) {
+		//debugging msg
+ 		Toast.makeText(getApplicationContext(), "Go West!",Toast.LENGTH_LONG).show();
+		}
+	});
+	/*/added*/
     	glk.start();
     }
 
@@ -209,24 +292,43 @@ public class Interpreter extends Activity {
 		if (setFont()) glk.getView().invalidate();
 	}
 
+	/* Changing font fixed with a workaround solution. Apparently, 
+ 	 * all that was needed was setting the returned value to the 
+	 * default value in TextBufferWindow and performing the other changes there.
+	 * Path option is eliminated. Later, would be thought of letting the user 
+	 * upload downloaded fonts, but for now the available fonts are fixed. More
+	 * fonts are to be added.
+	 */
+
 	private boolean setFont() {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		
-		//TODO: changing font is broken (text overflows the view)
+		//TODO: changing font is broken (text overflows the view) |:fixed:| 
 		
 		//String fontFolder = prefs.getString("fontFolderPath", "/sdcard/Fonts");
 		//String fontFile = prefs.getString("fontFileName", "Droid Serif");
-		//String fontPath = new File(fontFolder, fontFile).getAbsolutePath();
+		//String fontPath;
+		//File fonts = new File(fontFolder, fontFile);
+
+
 		int fontSize = 16;
 		try{
 			fontSize = Integer.parseInt(prefs.getString("fontSize", Integer.toString(fontSize)));
 		}catch(Exception e){}
 
-		if (TextBufferWindow.DefaultFontSize != fontSize) {
-			//(TextBufferWindow.DefaultFontPath == null 
-			//|| TextBufferWindow.DefaultFontPath.compareTo(fontPath)!=0 
+		String fontName = prefs.getString("fontFileName", "Droid Serif"); //returns the Svalue in "fontfileName"-preference and otherwise "DSerif" 
+		//debugging msg
+		if (TextBufferWindow.DefaultFontName == null)
+     				Toast.makeText(getApplicationContext(), fontName,Toast.LENGTH_LONG).show();
 
-			//TextBufferWindow.DefaultFontPath = fontPath;
+		TextBufferWindow.DefaultFontName = fontName;
+
+		if (TextBufferWindow.DefaultFontSize != fontSize) {
+		/*dead code*/
+		//	TextBufferWindow.DefaultFontName == null) {
+		//	|| TextBufferWindow.DefaultFontPath.compareTo(fontPath)!=0) {
+
+			//TextBufferWindow.DefaultFontName = fontName; //TODO: try again here in the IF
 			TextBufferWindow.DefaultFontSize = fontSize;
 			return true;
 		}
