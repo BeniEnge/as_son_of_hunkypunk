@@ -17,6 +17,31 @@
     along with Hunky Punk.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+/* Comments by: JPDOB-Team, NAME
+*               University of Constance, 2016
+*
+* Copyright: The following version of 'Son of Hunky Punk' obeys the 
+*            GNU General Public License. Since it is clearly stated in  
+*            5.  c),  'Son of Hunky Punk' obeys only the GNU GPL v3.
+*            All modifications are (to be) done according to the GNU 
+*            GPL v3, paragraph 5.
+*            
+*            All contributors as of GNU GPL are in a way stated.
+*
+*
+*            Class TextBufferWindow contains public:
+*                      class _SavedState: Standard implementation of Parcelable, which is more 
+*			                  code but far better performance(10x) than the Serializable interface. 
+*                                         Individual comments are provided above the respective methods.
+*                   private:
+*                      class _Stream:
+*                      class _ScrollView:
+*                      class _CommandView:
+*                      class _PromptView:
+*                      class _View:
+*                                     public class _MovementMethod:  
+*/
 package org.andglk.glk;
 
 import java.io.IOException;
@@ -28,6 +53,7 @@ import org.andglk.hunkypunk.R;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -35,10 +61,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.method.MovementMethod;
+import android.text.Selection;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -47,16 +76,19 @@ import android.view.inputmethod.EditorInfo;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 
 public class TextBufferWindow extends Window {
+
 	public static class _SavedState implements Parcelable {
-		public static final Parcelable.Creator<_SavedState> CREATOR = new Parcelable.Creator<_SavedState>() {
+		public static final Creator<_SavedState> CREATOR = new Creator<_SavedState>() {
 			@Override
 			public _SavedState createFromParcel(Parcel source) {
 				return new _SavedState(source);
@@ -68,11 +100,12 @@ public class TextBufferWindow extends Window {
 			}
 		};
 		
-		public Parcelable mSuperState;
+		public Parcelable mSuperState; /* This Parcelable will be the saved state of the super class */
 		public boolean mLineInputEnabled;
 		public int mLineInputStart;
 		public boolean mCharInputEnabled;
 
+		/* Used to restore from a saved state */
 		public _SavedState(Parcel source) {
 			mSuperState = TextView.SavedState.CREATOR.createFromParcel(source);
 			mLineInputEnabled = source.readByte() == 1;
@@ -80,6 +113,7 @@ public class TextBufferWindow extends Window {
 			mLineInputStart = source.readInt();
 		}
 
+		/**/
 		public _SavedState() {
 		}
 
@@ -120,7 +154,7 @@ public class TextBufferWindow extends Window {
 		super.readState(stream);
 		mView.readState(stream);
 	}
-	
+
 	private class _Stream extends Stream {
 		private long mCurrentStyle = Glk.STYLE_NORMAL;
 		private boolean mReverseVideo = false;
@@ -213,6 +247,8 @@ public class TextBufferWindow extends Window {
 
 	private class _CommandView extends EditText {
 
+
+
 		public boolean mCharInputEnabled;
 		public boolean mLineInputEnabled;
 		private TextWatcher mWatcher = 
@@ -260,9 +296,24 @@ public class TextBufferWindow extends Window {
 
 						if (char_inp > 0) {
 							disableInput();	
+					
 
 							SpannableStringBuilder sb = new SpannableStringBuilder();
-							sb.append(getText().toString().replace("\n","")+"\n");
+
+							if (mGlk.getNorth() == true) {
+								sb.append("north" + "\n");
+								mGlk.releaseNorth();
+							} else if (mGlk.getEast() == true) {
+								sb.append("east" + "\n");
+								mGlk.releaseEast();
+							} else if (mGlk.getSouth() == true) {
+								sb.append("south" + "\n");
+								mGlk.releaseSouth();
+							} else if (mGlk.getWest() == true) {
+								sb.append("west" + "\n");
+								mGlk.releaseWest();
+							} else
+								sb.append(getText().toString().replace("\n","")+"\n");
 
 							Object sp = stylehints.getSpan(mContext, Glk.STYLE_INPUT, false);
 							if (sb.length() > 0)
@@ -420,9 +471,12 @@ public class TextBufferWindow extends Window {
 			}
 		}
 
+		/* super.onSaveInstanceState is called and a new SavedState is created using the returned Parcelable.
+                 * All we have to do is to restore the state in onRestoreInstanceState().
+		 */
 		@Override
 		public Parcelable onSaveInstanceState() {
-			TextBufferWindow._SavedState ss = new TextBufferWindow._SavedState();
+			_SavedState ss = new _SavedState();
 			ss.mSuperState = super.onSaveInstanceState();
 			return ss;
 		}
@@ -502,9 +556,11 @@ public class TextBufferWindow extends Window {
 			}
 		}
 
+		/* The saved state of the super class is available via the 'mSuperState' Parcelable object.  The super class restores it’s state by calling 			 * super.onRestoreInstanceState.
+		 */
 		@Override
 		public void onRestoreInstanceState(Parcelable state) {
-			TextBufferWindow._SavedState ss = (_SavedState) state;
+			_SavedState ss = (_SavedState) state;
 			super.onRestoreInstanceState(ss.mSuperState);
 		}
 
@@ -665,7 +721,7 @@ public class TextBufferWindow extends Window {
 		}
 	}
 
-	public static String DefaultFontPath = null;
+	public static String DefaultFontName = null;
 	public static int DefaultFontSize = 0;
 	public String FontPath = null;
 	public int FontSize = 0;
@@ -677,7 +733,8 @@ public class TextBufferWindow extends Window {
 	private LinearLayout mLayout = null;
 	private CharSequence mCommandText = null;
 	private Object mLineInputSpan;
-
+	/*Every window has a rock. This is a value you provide when the window is created; you can use it however you want.*/
+	/*If you don't know what to use the rocks for, provide 0 and forget about it.*/
 	public TextBufferWindow(Glk glk, int rock) {
 		super(rock);
 
@@ -704,14 +761,14 @@ public class TextBufferWindow extends Window {
 					mScrollView.setPadding(0, 0, 0, 0);
 					mScrollView.setFocusable(false);
 
-					LinearLayout.LayoutParams paramsDefault = new
-						LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-					LinearLayout.LayoutParams paramsHLayout = new
-						LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-					LinearLayout.LayoutParams paramsPrompt = new
-						LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-					LinearLayout.LayoutParams paramsCommand = new
-						LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+					LayoutParams paramsDefault = new
+						LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+					LayoutParams paramsHLayout = new
+						LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+					LayoutParams paramsPrompt = new
+						LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+					LayoutParams paramsCommand = new
+						LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 					paramsPrompt.setMargins(0, -margin, 0, 0);
 					paramsCommand.setMargins(0, -margin, 0, 0);
 
@@ -787,17 +844,21 @@ public class TextBufferWindow extends Window {
 		if (_typeface == null) {
 			Typeface tf = null; 
 			
-			//TODO: this is broken & disabled for now
+			//TODO: this is broken & disabled for now |:fixed:|
 
-			// if (DefaultFontPath.endsWith("ttf") 
-			// 	|| DefaultFontPath.endsWith("otf"))
-			// 	try {
-			// 		tf = Typeface.createFromFile(DefaultFontPath);
-			// 	} catch (Exception ex) {}
-			// else if (DefaultFontPath.endsWith("Droid Sans")) 
-			// 	tf = Typeface.SANS_SERIF;
-			// else if (DefaultFontPath.endsWith("Droid Mono")) 
-			// 	tf = Typeface.MONOSPACE;
+			 if (DefaultFontName.endsWith("Droid Serif")) 
+			 //	|| DefaultFontName.endsWith("otf"))
+			 	try {
+			 		tf = Typeface.createFromAsset(mContext.getAssets(), "Fonts/DroidSerif.ttf");
+			 	} catch (Exception ex) {}
+			 else if (DefaultFontName.endsWith("Droid Sans")) 
+			 	tf = Typeface.SANS_SERIF;
+			 else if (DefaultFontName.endsWith("Droid Mono")) 
+			 	tf = Typeface.MONOSPACE;
+			 else if (DefaultFontName.endsWith("Daniel"))
+			 	try {
+			 		tf = Typeface.createFromAsset(mContext.getAssets(), "Fonts/Daniel.ttf");
+			 	} catch (Exception ex) {}
 
 			if (tf == null) tf = Typeface.SERIF;
 
@@ -826,12 +887,11 @@ public class TextBufferWindow extends Window {
 			echo.putString(result);
 			echo.putChar('\n');
 		}
-
-		//Log.d("Glk/TextBufferWindow", "lineInputAccepted:"+result);
 		
 		LineInputEvent lie = new LineInputEvent(this, result, mLineEventBuffer, 
 												mLineEventBufferLength, mLineEventBufferRock, mUnicodeEvent);
 		mLineEventBufferLength = mLineEventBuffer = mLineEventBufferRock = 0;
+
 		mGlk.postEvent(lie);
 	}
 
