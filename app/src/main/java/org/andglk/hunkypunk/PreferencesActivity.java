@@ -29,7 +29,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
@@ -134,35 +133,36 @@ public class PreferencesActivity
             ff.add("Droid Serif");
             ff.add("Droid Mono");
 
-            File ffol = new File(prefFol.getText());
-            if (ffol.exists()) {
-                final File[] fileList = new File(prefFol.getText()).listFiles(
-                        new FilenameFilter() {
-                            public boolean accept(File dir, String name) {
-                                if (name.startsWith(".")) {
-                                    return false;
-                                }
-                                final String lcName = name.toLowerCase();
-                                return lcName.endsWith(".ttf") || lcName.endsWith(".otf");
-                            }
-                        }
-                );
+			File ffol = new File(prefFol.getText());
+			if (ffol.exists()) {
+				final File[] fileList = new File(prefFol.getText()).listFiles(
+					new FilenameFilter() {
+						public boolean accept(File dir, String name) {
+							if (name.startsWith(".")) {
+								return false;
+							}
+							final String lcName = name.toLowerCase();
+							return lcName.endsWith(".ttf") || lcName.endsWith(".otf");
+						}
+					}
+				);
+			
+				for(int i=0;i<fileList.length;i++) {
+					ff.add(fileList[i].getName());
+				}
+			}
+			String[] aff = (String[])ff.toArray(new String[ff.size()]);
 
-                for (int i = 0; i < fileList.length; i++) {
-                    ff.add(fileList[i].getName());
-                }
-            }
-            String[] aff = (String[]) ff.toArray(new String[ff.size()]);
+			String save = prefFn.getValue();
+			prefFn.setValue("");
+			prefFn.setEntries(aff);
+			prefFn.setEntryValues(aff);
+			if (ff.contains(save)) prefFn.setValue(save);
 
-            String save = prefFn.getValue();
-            prefFn.setValue("");
-            prefFn.setEntries(aff);
-            prefFn.setEntryValues(aff);
-            if (ff.contains(save)) prefFn.setValue(save);
-
-            setSummaryPref(prefFn);
-        } else {
-            setSummaryPref(pref);
-        }
-    }
+			setSummaryPref(prefFn);
+		}
+		else {
+			setSummaryPref(pref);
+		}
+	}
 }

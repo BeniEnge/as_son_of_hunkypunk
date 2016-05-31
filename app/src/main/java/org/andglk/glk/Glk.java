@@ -34,6 +34,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,8 @@ import android.view.WindowManager;
 import android.view.View.MeasureSpec;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 /** <strong>DO NOT EVER INSTANTIATE OR START THIS CLASS MORE THAN ONCE IN A PROCESS' LIFETIME</strong> */
 public class Glk extends Thread {
@@ -117,6 +120,14 @@ public class Glk extends Thread {
 	private boolean _needToSave = false;
 	private boolean _exiting = false;
 
+
+
+	/*Directions, idea: Set the flag in the respective Listener and then pass it onto the TextWatcher.*/
+	private boolean goNorth = false;
+	private boolean goEast = false;
+	private boolean goSouth = false;
+	private boolean goWest = false;
+
 	@Override
 	public void run() {
 		startTerp(_arguments[0], _autoSavePath, _arguments.length, _arguments);
@@ -148,8 +159,8 @@ public class Glk extends Thread {
 				tw.setTextSize(fontSize);
 				tw.setText(R.string.game_quit);
 
-				overlay.measure(View.MeasureSpec.makeMeasureSpec(mFrame.getWidth(), MeasureSpec.AT_MOST), 
-						View.MeasureSpec.makeMeasureSpec(mFrame.getHeight(), MeasureSpec.AT_MOST));
+				overlay.measure(MeasureSpec.makeMeasureSpec(mFrame.getWidth(), MeasureSpec.AT_MOST),
+						MeasureSpec.makeMeasureSpec(mFrame.getHeight(), MeasureSpec.AT_MOST));
 				Bitmap bitmap = Bitmap.createBitmap(overlay.getMeasuredWidth(), overlay.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
 				overlay.layout(0, 0, overlay.getMeasuredWidth(), overlay.getMeasuredHeight());
 				overlay.draw(new Canvas(bitmap));
@@ -183,7 +194,7 @@ public class Glk extends Thread {
 	public void setWindow(Window window) {
 		mCurrentStream = window.getStream();
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Event select()
 	{
@@ -423,5 +434,71 @@ public class Glk extends Thread {
 			sanePath = saneFile.getAbsolutePath();
 		}
 		return sanePath;
+	}
+
+//added
+
+        /*----------------NORTH----------------*/
+	public void setNorth(boolean pressed) { //pressed = true //think about flush()(probably not)
+		if (goNorth == false) {
+			goNorth = pressed;
+		}
+	}
+
+	public void releaseNorth() { //MUST BE CALLED ONLY ONCE
+		if(goNorth == true)
+			goNorth = false;
+	}
+
+	public boolean getNorth() {
+		return goNorth;
+	}
+
+        /*----------------EAST----------------*/
+	public void setEast(boolean pressed) { //pressed = true
+		if (goEast == false) {
+			goEast = pressed;
+		}
+	}
+
+	public void releaseEast() { //MUST BE CALLED ONLY ONCE
+		if(goEast == true)
+			goEast = false;
+	}
+
+	public boolean getEast() {
+		return goEast;
+	}
+
+        /*----------------SOUTH----------------*/
+	public void setSouth(boolean pressed) { //pressed = true
+		if (goSouth == false) {
+			goSouth = pressed;
+		}
+	}
+
+	public void releaseSouth() { //MUST BE CALLED ONLY ONCE
+		if(goSouth == true)
+			goSouth = false;
+	}
+
+	public boolean getSouth() {
+		return goSouth;
+	}
+
+        /*----------------WEST----------------*/
+	public void setWest(boolean pressed) { //pressed = true
+		if (goWest == false) {
+			goWest = pressed;
+		}
+	}
+
+	public void releaseWest() { //MUST BE CALLED ONLY ONCE
+		if(goWest == true)
+			goWest = false;
+	}
+
+	public boolean getWest() {
+		return goWest;
 	}
 }
