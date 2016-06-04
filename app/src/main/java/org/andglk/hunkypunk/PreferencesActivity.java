@@ -34,6 +34,9 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 
+/*Toast Update*/
+import android.widget.Toast;
+
 public class PreferencesActivity
         extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
@@ -44,6 +47,7 @@ public class PreferencesActivity
         super.onCreate(savedInstanceState);
 
         // Load the preferences from an XML resource
+	//TODO: clear up "bla" preference
         addPreferencesFromResource(R.xml.preferences);
 
         Preference apref = findPreference("setIFDir");
@@ -63,6 +67,9 @@ public class PreferencesActivity
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     Paths.setIfDirectory(new File(Paths.cardDirectory().getPath() + "/Interactive Fiction")); //set Path as default
+		    
+                    //Possible TO DO: try with getBaseContext() instead of class.this, but for now it works w/o delays
+		    Toast.makeText(PreferencesActivity.this, "You have set the default directory: /Interactive Fiction", Toast.LENGTH_SHORT).show();
 
                     /** pushes the default If Directory to SharedPreferneces */
                     SharedPreferences sharedPrefs = getSharedPreferences("ifPath", Context.MODE_PRIVATE);
