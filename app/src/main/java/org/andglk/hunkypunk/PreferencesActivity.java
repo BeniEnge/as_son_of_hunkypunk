@@ -47,21 +47,25 @@ public class PreferencesActivity
         super.onCreate(savedInstanceState);
 
         // Load the preferences from an XML resource
-	//TODO: clear up "bla" preference
+		//TODO: clear up "bla"-defaultValue preference
         addPreferencesFromResource(R.xml.preferences);
 
-        Preference apref = findPreference("setIFDir");
-        if (apref != null)
-            apref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    DirChooser chd = new DirChooser();
-                    chd.show(getFragmentManager(), "");
-                    return false;
-                }
-            });
+		getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
-        Preference dpref = findPreference("defaultif");
+		Preference apref = findPreference("setIFDir");
+        if (apref != null) {
+			apref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+				@Override
+				public boolean onPreferenceClick(Preference preference) {
+					DirChooser chd = new DirChooser();
+					chd.show(getFragmentManager(), "");
+					onSharedPreferenceChanged(null, "setIFDir");
+					return false;
+				}
+			});
+		}
+
+        final Preference dpref = findPreference("defaultif");
         if (dpref != null) {
             dpref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -69,31 +73,44 @@ public class PreferencesActivity
                     Paths.setIfDirectory(new File(Paths.cardDirectory().getPath() + "/Interactive Fiction")); //set Path as default
 		    
                     //Possible TO DO: try with getBaseContext() instead of class.this, but for now it works w/o delays
-		    Toast.makeText(PreferencesActivity.this, "You have set the default directory: /Interactive Fiction", Toast.LENGTH_SHORT).show();
+		    		Toast.makeText(PreferencesActivity.this, "You have set the default directory.", Toast.LENGTH_SHORT).show();
 
-                    /** pushes the default If Directory to SharedPreferneces */
+                    /* pushes the default If Directory to SharedPreferneces */
                     SharedPreferences sharedPrefs = getSharedPreferences("ifPath", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPrefs.edit();
                     editor.putString("ifPath", Paths.ifDirectory().getAbsolutePath());
                     editor.commit();
+					dpref.setSummary(Paths.cardDirectory().getPath() + "/Interactive Fiction is set.");
                     return false;
                 }
             });
         }
+		onSharedPreferenceChanged(null, "setIFDir");
     }
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+	}
 
     @Override
     protected void onResume() {
         super.onResume();
         setSummaryAll(getPreferenceScreen());
-        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+		/* moved to onCreate() */
+        //getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(null, "fontFolderPath");
+		onSharedPreferenceChanged(null, "setIFDir");
+		//onSharedPreferenceChanged(null, "defaultif"); //otherwise default summary is not visible
+		                                                // however setDir is not persistent when only onClick set
 
     }
 
 	@Override protected void onPause() {
-		super.onPause(); 
-		getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+		super.onPause();
+		/* moved to onDestroy() */
+		//getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
 	} 
 
 	private void setSummaryAll(PreferenceScreen pScreen) {        
@@ -109,7 +126,7 @@ public class PreferencesActivity
 		String key = pref.getKey();
 		if (key == null) key = "";
 
-		if (pref instanceof EditTextPreference) {                
+		if (pref instanceof EditTextPreference) {
 			EditTextPreference etPref = (EditTextPreference) pref;     
 			String desc = etPref.getText();
 			pref.setSummary(desc); 
@@ -135,33 +152,33 @@ public class PreferencesActivity
                                                   sharedPreferences, String key) {
         Preference pref = findPreference(key);
         if (key.compareTo("fontFolderPath") == 0) {
-            EditTextPreference prefFol = (EditTextPreference) pref;
-            ListPreference prefFn = (ListPreference) findPreference("fontFileName");
+			EditTextPreference prefFol = (EditTextPreference) pref;
+			ListPreference prefFn = (ListPreference) findPreference("fontFileName");
 
-            ArrayList<String> ff = new ArrayList<String>();
-            ff.add("Droid Sans");
-            ff.add("Droid Serif");
-            ff.add("Droid Mono");
+			ArrayList<String> ff = new ArrayList<String>();
+			ff.add("Droid Sans");
+			ff.add("Droid Serif");
+			ff.add("Droid Mono");
 
 			File ffol = new File(prefFol.getText());
 			if (ffol.exists()) {
 				final File[] fileList = new File(prefFol.getText()).listFiles(
-					new FilenameFilter() {
-						public boolean accept(File dir, String name) {
-							if (name.startsWith(".")) {
-								return false;
+						new FilenameFilter() {
+							public boolean accept(File dir, String name) {
+								if (name.startsWith(".")) {
+									return false;
+								}
+								final String lcName = name.toLowerCase();
+								return lcName.endsWith(".ttf") || lcName.endsWith(".otf");
 							}
-							final String lcName = name.toLowerCase();
-							return lcName.endsWith(".ttf") || lcName.endsWith(".otf");
 						}
-					}
 				);
-			
-				for(int i=0;i<fileList.length;i++) {
+
+				for (int i = 0; i < fileList.length; i++) {
 					ff.add(fileList[i].getName());
 				}
 			}
-			String[] aff = (String[])ff.toArray(new String[ff.size()]);
+			String[] aff = (String[]) ff.toArray(new String[ff.size()]);
 
 			String save = prefFn.getValue();
 			prefFn.setValue("");
@@ -170,6 +187,12 @@ public class PreferencesActivity
 			if (ff.contains(save)) prefFn.setValue(save);
 
 			setSummaryPref(prefFn);
+		} else if (key.equals("setIFDir")) {
+			Preference preference = findPreference(key);
+			preference.setSummary(Paths.ifDirectory().getAbsolutePath());
+		} else if (key.equals("defaultif")) {
+			Preference preference = findPreference(key);
+			preference.setSummary(Paths.cardDirectory().getPath() + "/Interactive Fiction");
 		}
 		else {
 			setSummaryPref(pref);

@@ -24,10 +24,12 @@
     <Preference
         android:defaultValue="bla"
         android:key="setIFDir"
-        android:title="@string/add" />
+        android:title="@string/add"
+        android:summary="Your new IF-Directory" />
     <Preference
         android:key="defaultif"
-        android:title="@string/ifdef" />
+        android:title="@string/ifdef"
+        android:summary="Your default IF-Directory"/>
     <CheckBoxPreference
         android:id="@+id/enable_compass"
         android:key="enableCompass"
