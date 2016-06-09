@@ -34,5 +34,5 @@
         android:id="@+id/enable_compass"
         android:key="enableCompass"
         android:defaultValue="true"
-        android:title="Show Compass" />
+        android:title="Show compass" />
 </PreferenceScreen>
