@@ -35,6 +35,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 
 /*Toast Update*/
+import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 public class PreferencesActivity
@@ -59,7 +60,6 @@ public class PreferencesActivity
 				public boolean onPreferenceClick(Preference preference) {
 					DirChooser chd = new DirChooser();
 					chd.show(getFragmentManager(), "");
-					onSharedPreferenceChanged(null, "setIFDir");
 					return false;
 				}
 			});
@@ -85,7 +85,14 @@ public class PreferencesActivity
                 }
             });
         }
-		onSharedPreferenceChanged(null, "setIFDir");
+		/* Refreshes the summary of SetIF before the listView is shown. */
+		getListView().getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+			@Override
+			public boolean onPreDraw() {
+				onSharedPreferenceChanged(null, "setIFDir");
+				return true;
+			}
+		});
     }
 
 	@Override
