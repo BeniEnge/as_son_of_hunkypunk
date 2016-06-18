@@ -24,5 +24,5 @@
     <CheckBoxPreference
         android:id="@+id/enable_compass"
         android:key="enableCompass"
-        android:title="Show Compass" />
+        android:title="show compass" />
 </PreferenceScreen>
