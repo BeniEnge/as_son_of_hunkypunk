@@ -29,4 +29,9 @@
         android:key="fontFileName"
         android:summary="Custom TTF font file"
         android:title="Font file name" />
+	<SwitchPreference
+		android:key="day_night"
+		android:title="@string/dayNight"
+		android:defaultValue="false"
+		android:hint="NightOn"/>
 </PreferenceScreen>
